@@ -79,7 +79,7 @@ public class AlumnoController {
     }
 	
 	@GetMapping("/buscarPorDNI/{dni}")
-    public ResponseEntity<List<Alumno>> buscar(@PathVariable String dni) {
+    public ResponseEntity<List<Alumno>> buscar(@PathVariable("dni") String dni) {
 		System.out.println(">>>> busca por dni : " + dni);
         List<Alumno> lstAlumno = service.listaPorDni(dni);
         if (CollectionUtils.isEmpty(lstAlumno)) {
