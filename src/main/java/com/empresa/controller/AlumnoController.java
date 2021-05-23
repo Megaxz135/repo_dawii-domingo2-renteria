@@ -76,5 +76,13 @@ public class AlumnoController {
             return ResponseEntity.badRequest().build();
         }
     }
+	
+	@GetMapping("/{dni}")
+	public ResponseEntity<List<Alumno>> lista(@PathVariable("dni") String filtro){
+		//log.info(">>>> lista ");
+		System.out.println(">>>> lista por dni ");
+		List<Alumno> lstAlumno = service.listaPorDni(filtro);
+		return ResponseEntity.ok(lstAlumno);
+	}
 
 }
